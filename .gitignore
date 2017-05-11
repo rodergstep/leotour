@@ -1,0 +1,7 @@
+node_modules/*
+src/*
+.bowerrc
+bower.json
+gulpfile.js
+gutil.log
+package.json
