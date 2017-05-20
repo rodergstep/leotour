@@ -1,0 +1,1692 @@
+// Imports
+@import 'bootstrap/variables';
+@import 'fonts';
+@import 'vars';
+@import 'mixins';
+
+// Global animation
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    /*-webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);*/
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.animate-box {
+	.js & {
+		opacity: 0;
+	}
+}
+
+// Global animation end
+
+// Template Base
+body {
+	font-family: $font-primary;
+	line-height: 1.6;
+	font-size: 16px;
+	background: $color__body--bg;
+	color: #848484;
+	font-weight: 300;
+	overflow-x: hidden;
+	&.lviv-offcanvas {
+		overflow: hidden;
+	}
+}
+a {
+	color: $color__primary;
+	@include transition(.5s, ease);
+	&:hover{
+		text-decoration: none ;
+		color: $color__primary;
+	}
+}
+p, ul, ol {
+	margin-bottom: 1.5em;
+	font-size: 16px;
+	color: $color__text;
+	font-family: $font-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $color__text;
+	font-family: $font-primary;
+	font-weight: 400;
+	margin: 0 0 30px 0;
+}
+figure {
+	margin-bottom: 2em;
+}
+::-webkit-selection {
+  color: $color__body;
+  background: $color__selection;
+}
+
+::-moz-selection {
+  color: $color__body;
+  background: $color__selection;
+}
+
+::selection {
+  color: $color__body;
+  background: $color__selection;
+}
+#lviv-work-section,
+#lviv-blog-section,
+#lviv-features,
+#lviv-tours,
+#lviv-testimonial,
+.lviv-content-section {
+	padding: 7em 0;
+	@media screen and (max-width: $screen-sm) {
+		padding: 4em 0;
+	}
+
+}
+
+#lviv-wrapper {
+	overflow-x: hidden;
+	position: relative;
+}
+.lviv-offcanvas {
+	overflow: hidden;
+	#lviv-wrapper {
+		overflow: hidden!important;
+	}
+}
+
+#lviv-page {
+	position: relative;
+	@include transition(.5s);
+	.lviv-offcanvas & {
+		@include lviv-translateX(-240px);
+	}
+}
+
+.lviv-section-gray{
+	background: rgba($color__black,.04);
+}
+
+#lviv-header{
+	position: relative;
+	margin-bottom: 0;
+	z-index: 9999999;
+}
+
+/* HEADER */
+#lviv-logo{
+	position: relative;
+	z-index: 2;
+	font-size: 28px;
+	text-transform: uppercase;
+	margin-top: 35px;
+	font-weight: 700;
+	float: left;
+	padding-left: 40px;
+	i{
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 16px;
+		color: $color__primary;
+		background: rgba($color__black,.06);
+		padding: 10px;
+		@include border-radius(50%);
+	}
+
+	a{
+		color: $color__primary;
+		&:hover,&:focus{
+			color: $color__primary !important;
+		}
+	}
+
+}
+
+// MENU
+#lviv-menu-wrap {
+	@media screen and (max-width: $screen-sm) {
+		display: none;
+	}
+}
+#offcanvas-menu {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index: 99;
+	background: #222;
+	right: -240px;
+	width: 240px;
+	padding: 20px;
+	overflow-y: scroll!important;
+	display: none;
+	@media screen and (max-width: $screen-sm) {
+		display: block;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		li {
+			padding: 0;
+			margin: 0 0 10px 0;
+			list-style: none;
+			a {
+				font-size: 18px;
+				color: rgba(255,255,255,.4);
+				&:hover {
+					color: $color__primary;
+				}
+			}
+			> .lviv-sub-menu {
+				margin-top: 9px;
+				padding-left: 20px;
+			}
+			&.active {
+				> a {
+					color: $color__primary;
+				}
+			}
+		}
+		.lviv-sub-menu {
+			display: block!important;
+		}
+	}
+}
+
+
+
+/* BURGER MENU */
+.lviv-nav-toggle {
+
+  cursor: pointer;
+  text-decoration: none;
+  &.active i {
+		&::before, &::after {
+			background: $color__white;
+		}
+  }
+  &.dark {
+  	&.active i {
+			&::before, &::after {
+				background: $color__white;
+			}
+	  }
+  }
+  &:hover, &:focus, &:active {
+  	outline: none;
+  	border-bottom: none!important;
+  }
+  i {
+  	position: relative;
+	  @include inline-block;
+	  width: 30px;
+	  height: 2px;
+	  color: $color__white;
+	  font:bold 14px/.4 Helvetica;
+	  text-transform: uppercase;
+	  text-indent:-55px;
+	  background: $color__white;
+	  transition: all .2s ease-out;
+		 &::before, &::after {
+	  	  content:'';
+		  width: 30px;
+		  height: 2px;
+		  background: $color__white;
+		  position: absolute;
+		  left:0;
+		  @include transition(.2s);
+	  }
+  }
+  &.dark {
+  	i {
+	  	position: relative;
+		  color: $color__black;
+		  background: $color__black;
+		  transition: all .2s ease-out;
+			 &::before, &::after {
+			  background: $color__black;
+			  @include transition(.2s);
+		  }
+	  }
+  }
+}
+
+.lviv-nav-toggle i::before {
+  top: -7px;
+}
+.lviv-nav-toggle i::after {
+  bottom: -7px;
+}
+.lviv-nav-toggle:hover i::before {
+  top: -10px;
+}
+.lviv-nav-toggle:hover i::after {
+  bottom: -10px;
+}
+.lviv-nav-toggle.active i {
+	background: transparent;
+}
+.lviv-nav-toggle.active i::before {
+  top:0;
+  -webkit-transform: rotateZ(45deg);
+     -moz-transform: rotateZ(45deg);
+      -ms-transform: rotateZ(45deg);
+       -o-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+.lviv-nav-toggle.active i::after {
+  bottom:0;
+  -webkit-transform: rotateZ(-45deg);
+     -moz-transform: rotateZ(-45deg);
+      -ms-transform: rotateZ(-45deg);
+       -o-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+.lviv-nav-toggle {
+  	position: absolute;
+  	top: 0px;
+	right: 0px;
+	z-index: 9999;
+	display: block;
+	margin: 0 auto;
+	display: none;
+	cursor: pointer;
+  	@media screen and (max-width: $screen-sm) {
+  		display: block;
+  		top: 0px;
+  		margin-top: 2em;
+  	}
+
+}
+
+/* Superfish Override Menu */
+.sf-menu {
+	margin: 7px 0 0 0!important;
+}
+
+.sf-menu {
+	float: right;
+}
+.sf-menu ul {
+	box-shadow: none;
+	border: transparent;
+	min-width: 12em;
+	*width: 12em;
+}
+
+.sf-menu a {
+	color: rgba(0,0,0,.5);
+	padding: .75em 1em!important;
+	font-weight: normal;
+	border-left: none;
+	border-top: none;
+	border-top: none;
+	text-decoration: none;
+	zoom: 1;
+	font-size: 16px;
+	border-bottom: none!important;
+	font-weight: bold;
+
+	&:hover,&:focus{
+		color: $color__primary!important;
+	}
+}
+.sf-menu li.active{
+	a {
+		&:hover,
+    &:focus{
+			color: $color__primary;
+		}
+	}
+}
+
+.sf-menu li,
+.sf-menu ul li,
+.sf-menu ul ul li,
+.sf-menu li:hover,
+.sf-menu li.sfHover  {
+	background: transparent;
+}
+.sf-menu ul li a,
+.sf-menu ul ul li a {
+	text-transform: none;
+	padding: .20em 1em!important;
+	letter-spacing: 1px;
+	font-size: 14px!important;
+}
+.sf-menu li:hover a,
+.sf-menu li.sfHover a,
+.sf-menu ul li:hover a,
+.sf-menu ul li.sfHover a,
+.sf-menu li.active a {
+	color: $color__primary;
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, .08);
+}
+.sf-menu ul li:hover,
+.sf-menu ul li.sfHover {
+	background: transparent;
+}
+
+
+.sf-menu ul li {
+	background: transparent;
+}
+.sf-arrows .sf-with-ul {
+	padding-right: 2.5em;
+	*padding-right: 1em;
+}
+.sf-arrows .sf-with-ul:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+	border: 5px solid transparent;
+	border-top-color: #ccc;
+}
+
+.sf-arrows > li > .sf-with-ul:focus:after,
+.sf-arrows > li:hover > .sf-with-ul:after,
+.sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: #ccc;
+}
+.sf-arrows ul .sf-with-ul:after {
+	margin-top: -5px;
+	margin-right: -3px;
+	border-color: transparent;
+	border-left-color: #ccc;
+}
+.sf-arrows ul li > .sf-with-ul:focus:after,
+.sf-arrows ul li:hover > .sf-with-ul:after,
+.sf-arrows ul .sfHover > .sf-with-ul:after {
+	border-left-color: #ccc;
+}
+
+#lviv-header-section{
+	padding:0;
+	position: relative;
+	left: 0;
+	width: 100%;
+	z-index: 1022;
+	background: $color__white;
+}
+.nav-header{
+
+	position: relative;
+	float: left;
+	width: 100%;
+}
+
+
+#lviv-menu-wrap {
+	position: relative;
+	z-index: 2;
+	display: block;
+	float: right;
+	margin-top: 15px;
+	.sf-menu a {
+		padding: 1em .75em;
+	}
+}
+@media screen and (max-width: 768px) {
+#lviv-menu-wrap {
+    display: none;
+    top: 0;
+    margin-top: 2em;
+}}
+#lviv-primary-menu {
+	> li {
+		> ul {
+			li {
+				&.active > a {
+					color: $color__primary!important;
+				}
+			}
+		}
+		> .sf-with-ul {
+			&:after {
+				border: none!important;
+				@include icomoon();
+				position: absolute;
+				float: right;
+				margin-right: -0px;
+				top: 50%;
+				font-size: 12px;
+				margin-top: -7px;
+				content: "\e922";
+				color: rgba(0,0,0,.5);
+			}
+		}
+		> ul {
+			li {
+				position: relative;
+				> .sf-with-ul {
+					&:after {
+						border: none!important;
+						@include icomoon();
+						position: absolute;
+						float: right;
+						margin-right: 10px;
+						top: 20px;
+						font-size: 12px;
+						content: "\e924";
+						color: rgba(0,0,0,.5);
+					}
+				}
+			}
+		}
+	}
+}
+#lviv-primary-menu .lviv-sub-menu {
+	padding:10px 7px 10px;
+	background: $color__white;
+	left: 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+	-moz-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+	-ms-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+	-o-box-shadow:0 5px 15px rgba(0,0,0,0.15);
+	box-shadow:0 5px 15px rgba(0,0,0,0.15);
+	> li {
+		> .lviv-sub-menu {
+			left: 100%;
+		}
+	}
+
+}
+
+#lviv-primary-menu .lviv-sub-menu:before {
+	position:absolute;
+	top:-9px;
+	left:20px;
+	width:0;
+	height:0;
+	content:'';
+}
+
+#lviv-primary-menu .lviv-sub-menu:after {
+	position:absolute;
+	top:-8px;
+	left:21px;
+	width:0;
+	height:0;
+	border-right:8px solid transparent;
+	border-bottom:8px solid $color__white;
+	border-bottom:8px solid rgba(255, 255, 255, 1);
+	border-left:8px solid transparent;
+	content:'';
+}
+
+#lviv-primary-menu .lviv-sub-menu .lviv-sub-menu:before {
+	top:6px;
+	left:100%;
+}
+
+#lviv-primary-menu .lviv-sub-menu .lviv-sub-menu:after {
+	top:7px;
+	right:100%;
+	border: none!important;
+}
+
+.site-header.has-image #primary-menu .sub-menu {
+	border-color:#ebebeb;
+	-webkit-box-shadow:0 5px 15px 4px rgba(0,0,0,0.09);
+	-moz-box-shadow:0 5px 15px 4px rgba(0,0,0,0.09);
+	-ms-box-shadow:0 5px 15px 4px rgba(0,0,0,0.09);
+	-o-box-shadow:0 5px 15px 4px rgba(0,0,0,0.09);
+	box-shadow:0 5px 15px 4px rgba(0,0,0,0.09);
+	&:before {
+		display:none;
+	}
+}
+#lviv-primary-menu .lviv-sub-menu a {
+	letter-spacing: 0;
+	padding:0 15px;
+	font-size:18px;
+	line-height:34px;
+	color: #575757 !important;
+	text-transform:none;
+	background:none;
+	&:hover {
+		color: $color__primary!important;
+	}
+}
+/* HEADER END*/
+
+/* FIRST SCREEN */
+.lviv-cover,
+.lviv-hero {
+	position: relative;
+	height: 800px;
+	@media screen and (max-width: $screen-sm) {
+		height: 700px;
+	}
+}
+
+.lviv-cover{
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	@media screen and (max-width: $screen-sm) {
+		height: inherit;
+		padding: 3em 0;
+	}
+	.btn {
+		padding: 1em 2em;
+		opacity: .9;
+	}
+	&.lviv-cover_2{
+		height: 600px;
+		@media screen and (max-width: $screen-sm) {
+			height: inherit;
+			padding: 3em 0;
+		}
+
+	}
+
+	.desc{
+		top: 40%;
+		position: absolute;
+		width: 100%;
+		margin-top: -80px;
+		z-index: 2;
+		color: $color__white;
+
+		@media screen and (max-width: $screen-sm) {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+		h2{
+			color: $color__white;
+			// text-transform: uppercase;
+			font-size: 60px;
+			margin-bottom: 10px;
+			font-weight: 400!important;
+			@media screen and (max-width: $screen-sm) {
+				font-size: 40px;
+			}
+		}
+		h3{
+			color: $color__white;
+		}
+		p {
+			display: block;
+			margin-bottom: 30px;
+
+			font-size: 16px;
+			letter-spacing: 1px;
+			color: rgba(255,255,255,.7);
+			a{
+				color: $color__white;
+
+				&:hover,&:focus{
+					color: #fff !important;
+					&.btn{
+						border: 2px solid #fff !important;
+						background: transparent !important;
+					}
+				}
+
+				&.lviv-site-name{
+					padding-bottom: 2px;
+					border-bottom: 1px solid rgba($color__white,.7);
+				}
+			}
+		}
+		.price{
+			font-size: 60px;
+			font-weight: bold;
+		}
+		.desc2{
+			@media screen and(max-width: $screen-sm){
+				display: none;
+			}
+		}
+	}
+}
+
+//BOOKING FORM
+.tabulation{
+	width: 100%;
+	float: left;
+	margin-top: -7em;
+	background: rgba($color__white,.95);
+	-webkit-box-shadow: 0px 43px 83px -20px rgba(0,0,0,0.41);
+	-moz-box-shadow: 0px 43px 83px -20px rgba(0,0,0,0.41);
+	-ms-box-shadow: 0px 43px 83px -20px rgba(0,0,0,0.41);
+	-o-box-shadow: 0px 43px 83px -20px rgba(0,0,0,0.41);
+	box-shadow: 0px 43px 83px -20px rgba(0,0,0,0.41);
+	label{
+		color: rgba($color__black,.5);
+		font-size: 14px;
+		@media screen and(max-width: $screen-xs){
+			width: 40%;
+		}
+	}
+	input[type="text"] {
+		background: rgba(0,0,0,.05);
+		border: none;
+		box-shadow: none;
+		font-weight: bold;
+		font-size: 14px;
+		padding: 5px 10px !important;
+		@include border-radius(0);
+		color: $color__primary !important;
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		  color: $color__primary !important;
+		}
+		&::-moz-placeholder { /* Firefox 19+ */
+		  color: $color__primary !important;
+		}
+		&:-ms-input-placeholder { /* IE 10+ */
+		  color: $color__primary !important;
+		}
+		&:-moz-placeholder { /* Firefox 18- */
+		  color: $color__primary !important;
+		}
+		@media screen and(max-width: $screen-xs){
+			width: 55%;
+			float: right;
+		}
+	}
+	.cs-select{
+		@media screen and(max-width: $screen-xs){
+			width: 55%;
+			float: right;
+		}
+	}
+}
+
+.tab-content{
+	padding: 30px;
+	.btn{
+    letter-spacing: 0;
+		text-transform: none;
+		font-weight: bold;
+		font-size: 18px;
+		border: 1px solid red !important;
+	}
+}
+
+.nav-tabs{
+	border: none;
+	a{
+		border: none !important;
+		font-weight: bold;
+		padding: 15px 20px !important;
+		@include border-radius(0);
+		@media screen and (max-width: $screen-sm){
+			font-weight: normal;
+			font-size: 13px;
+			padding: 15px 10px !important;
+		}
+	}
+	.active{
+		a{
+			border: none !important;
+			background: $color__primary !important;
+			color: $color__white !important;
+			font-weight: bold;
+			@include border-radius(0);
+		}
+	}
+	&:hover, &:focus{
+		a{
+			border: none !important;
+			@include border-radius(0);
+		}
+	}
+}
+.mt{
+	margin-bottom: 20px;
+}
+
+// Select Style Override
+div.cs-select{
+  span{
+    padding: 10px 10px;
+  }
+}
+
+.cs-skin-border  {
+  font-size: 16px;
+  color: #fff;
+  @media screen and (max-width: 829px) {
+    max-width: 829px!important;
+  }
+  @media screen and (max-width: 30em) {
+    font-size: 16px;
+  }
+  span{
+  	font-size: 13px;
+  	&:hover{
+  		background: rgba(0,0,0,.05) !important;
+  	}
+  }
+  > span {
+    border: transparent;
+    background: rgba(0,0,0,.05);
+    color: $color__primary;
+    &::after {
+      font-size: 14px!important;
+      content: '\e94d' !important;
+      font-family: "icomoon";
+    }
+  }
+  .cs-selected {
+		> span {
+		&::after {
+		  font-size: 14px!important;
+		}
+		}
+  }
+}
+.cs-skin-border.cs-active > span{
+	background: rgba(0,0,0,.05) !important;
+	color: $color__primary;
+}
+.cs-select .cs-options {
+   -webkit-box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+	-moz-box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+	-ms-box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+	-o-box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+	box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+}
+//BOOKING FORM END
+
+
+/* TOP TOURS*/
+.lviv-tours {
+	margin-bottom: 30px;
+	> div {
+		display: block;
+		color: $color__black;
+		position: relative;
+		bottom: 0;
+		overflow: hidden;
+		@include transition(.5s);
+		img {
+			position: relative;
+			@include transition(.5s);
+		}
+		&:after {
+			opacity: 1;
+			visibility: visible;
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: 0;
+			background: rgba(0, 0, 0, .3);
+			z-index: 8;
+			@include transition(.5s)
+		}
+		.desc{
+			position: absolute;
+			// top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 30px;
+			z-index: 12;
+			@include transition(.3s);
+			h3 {
+				color: $color__white;
+				margin: 0;
+				padding: 0;
+				opacity: 1;
+				font-size: 30px;
+				font-weight: 400;
+				visibility: visible;
+				margin-bottom: 5px;
+				@include transition(.3s);
+			}
+			span{
+				display: block;
+				color: rgba($color__white,.9);
+				margin-bottom: 5px;
+			}
+			.price{
+				font-size: 30px;
+				font-weight: bold;
+				color: $color__white;
+			}
+			.btn{
+				opacity: 1;
+				border: 2px solid $color__white !important;
+				color: $color__white !important;
+				letter-spacing: 1px !important;
+				font-weight: 400 !important;
+				&:hover, &:focus, &:active {
+					border: 2px solid $color__primary !important;
+					background: $color__primary !important;
+					color: $color__white !important;
+				}
+			}
+		}
+		&:hover {
+			-webkit-box-shadow: 0px 18px 71px -10px rgba(0,0,0,0.75);
+			-moz-box-shadow: 0px 18px 71px -10px rgba(0,0,0,0.75);
+			box-shadow: 0px 18px 71px -10px rgba(0,0,0,0.75);
+
+			&:after {
+				opacity: 1;
+				visibility: visible;
+				-webkit-box-shadow: inset 0px -34px 98px 8px rgba(0,0,0,0.75);
+				-moz-box-shadow: inset 0px -34px 98px 8px rgba(0,0,0,0.75);
+				-ms-box-shadow: inset 0px -34px 98px 8px rgba(0,0,0,0.75);
+				-o-box-shadow: inset 0px -34px 98px 8px rgba(0,0,0,0.75);
+				box-shadow: inset 0px -34px 98px 8px rgba(0,0,0,0.75);
+				background: rgba(0, 0, 0, .2);
+				@media screen and (max-width: $screen-sm ) {
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+			img {
+				-webkit-transform: scale(1.1);
+				-moz-transform: scale(1.1);
+				-o-transform: scale(1.1);
+				transform: scale(1.1);
+
+				@media screen and (max-width: $screen-sm ) {
+
+					-webkit-transform: scale(1.0);
+					-moz-transform: scale(1.0);
+					-o-transform: scale(1.0);
+					transform: scale(1.0);
+				}
+			}
+		}
+	}
+}
+
+/* FEATURES*/
+#lviv-features {
+	padding: 7em 0;
+
+	.feature-left {
+		margin-bottom: 40px;
+		@media screen and (max-width: $screen-md) {
+			margin-bottom: 30px;
+		}
+		.icon {
+			i {
+				color: $feature-icon !important;
+			}
+		}
+
+		.icon {
+			float: left;
+			text-align: center;
+			width: 15%;
+			@media screen and (max-width: $screen-md) {
+				width: 10%;
+			}
+			@media screen and (max-width: $screen-sm) {
+				width: 15%;
+			}
+		}
+		.feature-copy {
+			float: right;
+			width: 80%;
+			@media screen and (max-width: $screen-md) {
+				width: 90%;
+			}
+			@media screen and (max-width: $screen-sm) {
+				width: 85%;
+			}
+			@media screen and (max-width: $screen-xs) {
+				width: 80%;
+			}
+		}
+		h3 {
+			font-size: 16px;
+			font-weight: 700;
+		}
+		p {
+			font-size: 15px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.feature-left {
+	float: left;
+	width: 100%;
+	margin-bottom: 40px;
+	position: relative;
+
+	.icon {
+		float: left;
+		text-align: center;
+		width: 15%;
+		@media screen and (max-width: $screen-md) {
+			width: 10%;
+		}
+		@media screen and (max-width: $screen-sm) {
+			width: 15%;
+		}
+		i {
+			display: table-cell;
+			vertical-align: middle;
+			font-size: 40px;
+			color: $color__primary;
+		}
+	}
+	.feature-copy {
+		float: right;
+		width: 80%;
+		@media screen and (max-width: $screen-md) {
+			width: 90%;
+		}
+		@media screen and (max-width: $screen-sm) {
+			width: 85%;
+		}
+		@media screen and (max-width: $screen-xs) {
+			width: 80%;
+		}
+
+		h3 {
+			font-size: 18px;
+			color: lighten($color__black, 10%);
+			margin-bottom: 10px;
+		}
+		p {
+			font-size: 16px;
+			line-height: 1.8;
+			margin-bottom: 10px;
+		}
+	}
+}
+/* FEATURES END */
+
+//TOP SPOTS
+#lviv-destination{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#lviv-destination-list {
+	@include flexwrap;
+	@include flex;
+	position: relative;
+	float: left;
+	padding: 0 !important;
+	margin: 0 !important;
+	width: 100%;
+	li {
+		display: table;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		min-height: 220px;
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		float: left;
+		clear: left;
+		position: relative;
+		@media screen and (max-width: $screen-xs) {
+			margin-left: 0;
+		}
+		.title-bg{
+			min-height: 220px;
+			padding: 2em;
+			position: relative;
+			width: 100%;
+			display: table-cell;
+			vertical-align: middle;
+			background: $color__secondary;
+			z-index: 12;
+			h2{
+				color: $color__white;
+		   	margin-bottom: 20px;
+		   	font-size: 40px;
+			}
+			span{
+	   		text-transform: uppercase;
+	   		letter-spacing: 2px;
+	   		a{
+	   			color: $color__white;
+	   			font-size: 13px;
+	   			font-weight: 400;
+	   			border: 1px solid $color__white;
+	   			padding: 5px 7px;
+	   			@include border-radius(4px);
+	   		}
+	   	}
+	   	@media screen and (max-width: $screen-sm){
+	   		h2{
+	   			font-size: 24px;
+	   		}
+	   	}
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: 0;
+			background: rgba(0, 0, 0, .4);
+			z-index: 8;
+			@include transition(.5s)
+		}
+		> a {
+			min-height: 220px;
+			padding: 2em;
+			position: relative;
+			width: 100%;
+			display: table-cell;
+			vertical-align: middle;
+		   z-index: 12;
+		   &:after{
+				position: absolute;
+				top: 20px;
+				bottom: 20px;
+				left: 20px;
+				right: 20px;
+				content: "";
+				border: 2px solid rgba($color__white,.8);
+				opacity: 0;
+				@include transition(.3s);
+			}
+
+			.case-studies-summary {
+			   width: auto;
+
+			   @media screen and (max-width: $screen-sm) {
+			   	bottom: 1em;
+				   left: 1em;
+				   right: 1em;
+			   }
+			   span {
+			   	text-transform: uppercase;
+			   	letter-spacing: 2px;
+			   	font-size: 13px;
+			   	color: rgba(255,255,255,.7);
+			   }
+			   h2 {
+			   	color: $color__white;
+			   	margin-bottom: 0;
+			   	font-size: 24px;
+			   	font-weight: 400;
+			   	@include transition(.1s);
+			   	@media screen and (max-width: $screen-sm) {
+			   		font-size: 24px;
+			   	}
+			   }
+			}
+		}
+		&:hover{
+			&:after{
+				-webkit-box-shadow: inset 0px 0px 91px 0px rgba(0,0,0,0.75);
+				-moz-box-shadow: inset 0px 0px 91px 0px rgba(0,0,0,0.75);
+				-ms-box-shadow: inset 0px 0px 91px 0px rgba(0,0,0,0.75);
+				-o-box-shadow: inset 0px 0px 91px 0px rgba(0,0,0,0.75);
+				box-shadow: inset 0px 0px 91px 0px rgba(0,0,0,0.75);
+				background: rgba(0, 0, 0, .3);
+			}
+			> a{
+				&:after{
+					opacity: 1;
+				}
+				.case-studies-summary {
+					h2{
+						margin-top: -5px;
+					}
+				}
+			}
+		}
+		&.two-third {
+			width: 65.6%;
+			@media screen and (max-width: $screen-sm) {
+				width: 49%;
+			}
+			@media screen and (max-width: $screen-xs) {
+				width: 100%;
+			}
+		}
+		&.one-third {
+			width: 32.3%;
+			@media screen and (max-width: $screen-sm) {
+				width: 49%;
+			}
+			@media screen and (max-width: $screen-xs) {
+				width: 100%;
+			}
+		}
+		&.one-forth {
+			width: 25%;
+			@media screen and (max-width: $screen-sm) {
+				width: 49%;
+			}
+			@media screen and (max-width: $screen-xs) {
+				width: 100%;
+			}
+		}
+		&.one-half {
+			width: 50%;
+			@media screen and (max-width: $screen-xs) {
+				width: 100%;
+			}
+		}
+
+	}
+
+}
+//TOP SPOTS END
+
+
+/* RECENT FROM BLOG */
+.lviv-blog{
+	margin-bottom: 60px;
+	a{
+		img{
+
+			width: 100%;
+		}
+	}
+	@media screen and (max-width: $screen-sm) {
+		width: 100%;
+	}
+	.blog-text {
+		margin-bottom: 30px;
+		position: relative;
+		background: $color__white;
+		width: 100%;
+		padding: 30px;
+		float: right;
+		// margin-top: -1em;
+		-webkit-box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+		-moz-box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+		box-shadow: 0px 10px 20px -12px rgba(0,0,0,0.18);
+
+		span{
+			display: inline-block;
+			margin-bottom: 20px;
+			&.posted_by{
+				font-style: italic;
+				color: rgba($color__black,.3);
+				font-size: 18px;
+			}
+			&.comment{
+				float: right;
+				a{
+					color: rgba($color__black,.3);
+					i{
+						color: $color__primary;
+						padding-left: 7px;
+					}
+				}
+			}
+		}
+
+		h3{
+			font-size: 20px;
+			margin-bottom: 20px;
+			font-weight: 400;
+			line-height: 1.5;
+			a{
+				color: rgba($color__black,.6);
+			}
+		}
+	}
+}
+
+.heading-section{
+	padding-bottom: 1em;
+	margin-bottom: 5em;
+	&:after{
+		position: absolute;
+		content: '';
+		bottom: 0;
+		left: 50%;
+		width: 100px;
+		margin-left: -50px;
+		height: 2px;
+		background: $color__primary;
+	}
+
+	h3{
+		font-size: 40px;
+		font-weight: 400;
+		position: relative;
+	}
+	p {
+		font-size: 20px;
+	}
+}
+
+
+.heading-title{
+	font-size: 40px;
+	margin-bottom: 1.5em;
+}
+/* END of RECENT FROM BLOG */
+
+
+// TESTIMONIAL
+#lviv-testimonial {
+	position: relative;
+	padding-top: 5em;
+	padding-bottom: 1em;
+	background: $color__secondary;
+	.lviv-heading {
+		h2 {
+			color: rgba(255,255,255,1);
+		}
+	}
+	.box-testimony {
+		margin-bottom: 2em;
+		float: left;
+		a {
+			color: rgba(255,255,255,.5);
+			&:hover, &:focus, &:active {
+				color: rgba(255,255,255,1);
+				text-decoration: none;
+			}
+		}
+		blockquote {
+			padding-left: 0;
+			border-left: none;
+			padding: 40px;
+			background: $color__white;
+
+			position: relative;
+			@include border-radius(4px);
+			&:after {
+			   content: "";
+			   position: absolute;
+			   top: 100%;
+			   left: 40px;
+			   border-top: 15px solid black;
+			   border-top-color: $color__white;
+			   border-left: 15px solid transparent;
+			   border-right: 15px solid transparent;
+			}
+			.quote {
+				position: absolute;
+				top: 0;
+				left: 10px;
+				text-align: center;
+				font-size: 30px;
+				line-height: 0;
+				display: table;
+				color: $color__white;
+				width: 56px;
+				height: 56px;
+				margin-top: -30px;
+				background: $color__secondary;
+				@include border-radius(50%);
+				> span {
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+			p {
+				// font-style: italic;
+				letter-spacing: 1px;
+			}
+		}
+		.author {
+			line-height: 20px;
+			color: rgba(255,255,255,1);
+			font-size: 20px;
+			margin-left: 20px;
+		}
+	}
+}
+
+/* CONTACT */
+#lviv-contact {
+	.contact-info{
+		margin: 0;
+		padding: 0;
+		li{
+			// font-size: 16px;
+			list-style: none;
+			margin: 0 0 20px 0;
+			position: relative;
+			padding-left: 40px;
+
+			i{
+				position: absolute;
+				top: .3em;
+				left: 0;
+				font-size: 22px;
+				color: rgba($color__black,.3);
+			}
+			a{
+				font-weight: 400!important;
+				color: rgba($color__black,.3)
+			}
+
+		}
+	}
+	.form-control {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		-ms-box-shadow: none;
+		-o-box-shadow: none;
+		box-shadow: none;
+		border: none;
+		border: 1px solid rgba(0,0,0,.1);
+		font-size: 18px;
+
+		font-weight: 400;
+		@include border-radius(0px);
+
+		&:focus, &:active {
+			border-bottom: 1px solid rgba(0,0,0,.5);
+		}
+
+	}
+	input[type="text"] {
+		height: 50px;
+	}
+	.form-group {
+		margin-bottom: 30px;
+	}
+}
+
+.lviv-testimonial, .lviv-team{
+	position: relative;
+	background: $color__white;
+	padding: 30px;
+	border-radius: 5px;
+	margin-bottom: 30px;
+
+	@media screen and (max-width: $screen-sm) {
+		border-right: 0;
+		margin-bottom: 80px;
+	}
+
+	h2{
+		font-size: 16px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 50px;
+	}
+	figure{
+		position: relative;
+		top: 0px;
+		background-size: cover;
+		margin-bottom: 20px;
+		img{
+			width: 130px;
+			height: 130px;
+			border: 10px solid $color__white;
+			background-size: cover;
+			@include border-radius(50%);
+		}
+	}
+
+	> div {
+		padding: 30px 30px 0 30px;
+		h3 {
+			margin-bottom: 0;
+			font-size: 20px;
+			color: $color__primary;
+		}
+		.position {
+			color: lighten($color__black, 85%);
+			margin-bottom: 30px;
+		}
+	}
+	> div,
+	blockquote{
+		border: none;
+		padding: 0;
+		margin-bottom: 20px;
+		p{
+			font-size: 16px;
+			line-height: 1.5;
+			color: #555555;
+		}
+
+	}
+
+	span{
+		font-style: italic;
+		color: lighten($color__black, 70%);
+	}
+}
+
+.lviv-testimonial {
+	p {
+		.text-mute {
+			color: #ccc!important;
+		}
+	}
+}
+
+/* CONTACT END */
+
+
+/* MAP */
+#map {
+	width: 100%;
+	height: 500px;
+	position: relative;
+	@media screen and (max-width: $screen-sm) {
+		height: 200px;
+	}
+}
+
+/* FOOTER */
+.lviv-social-icons {
+	> a {
+		padding: 4px 10px;
+		color: $color__primary;
+
+		i{
+			font-size: 26px;
+		}
+		&:hover, &:focus, &:active {
+			text-decoration: none;
+			color: $color__text;
+		}
+	}
+}
+
+#footer{
+	background: $color__footer;
+	padding: 60px 0 40px;
+
+	p{
+		color: rgba($color__white,.7);
+		// letter-spacing: 1px;
+		font-size: 14px;
+		// text-transform: uppercase;
+		a{
+			color: rgba($color__white,.5);
+			&:hover, &:active, &:focus {
+				color: rgba($color__white,.9)!important;
+			}
+		}
+	}
+
+	.lviv-footer-link {
+		padding-bottom: 30px;
+		h3 {
+			color: $color__white;
+			font-size: 18px;
+			font-weight: 400;
+			margin-bottom: 25px;
+		}
+		li, ul {
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			list-style: none;
+			margin-bottom: 15px;
+			line-height: 1.3;
+			a {
+				color: rgba(255,255,255,.5);
+				&:hover, &:active, &:focus {
+					color: $color__white!important;
+				}
+			}
+		}
+	}
+}
+/* FOOTER END */
+
+
+// Helper Class
+.btn {
+	@include transition(.3s);
+}
+
+.btn {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	@include transition(.3s);
+	&.btn-primary {
+		background: $color__primary;
+		color: $color__white;
+		border: none!important;
+		border: 2px solid transparent!important;
+		&:hover, &:active, &:focus {
+			box-shadow: none;
+			background: $color__primary;
+			color: $color__white!important;
+		}
+	}
+	&:hover, &:active, &:focus {
+		background: #393e46!important;
+		color: $color__white;
+		outline: none!important;
+	}
+	&.btn-default {
+		&:hover, &:focus, &:active {
+			border-color: transparent;
+		}
+	}
+	&.btn-outline {
+		background: transparent;
+		color: $color__primary;
+		border: 2px solid $color__primary !important;
+		&:hover, &:focus, &:active {
+			background: $color__primary !important;
+			color: $color__white !important;
+		}
+	}
+}
+
+.col-xxs-12 {
+	@media screen and (max-width: 480px) {
+		float: none;
+		width: 100%;
+	}
+}
+
+.row-bottom-padded-lg {
+	padding-bottom: 7em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-bottom: 2em;
+	}
+}
+.row-top-padded-lg {
+	padding-top: 7em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-top: 2em;
+	}
+}
+.row-bottom-padded-md {
+	padding-bottom: 4em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-bottom: 2em;
+	}
+}
+.row-top-padded-md {
+	padding-top: 4em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-top: 2em;
+	}
+}
+.row-bottom-padded-sm {
+	padding-bottom: 2em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-bottom: 2em;
+	}
+}
+.row-top-padded-sm {
+	padding-top: 2em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-top: 2em;
+	}
+}
+
+.border-bottom {
+	border-bottom: 1px solid rgba($color__black,.06);
+}
+
+.lead {
+	line-height: 1.8;
+}
+
+.no-js #loader {
+	display: none;
+}
+.js #loader {
+	display: block; position: absolute; left: 100px; top: 0;
+}
+.lviv-loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../img/hourglass.svg) center no-repeat #222222;
+}
