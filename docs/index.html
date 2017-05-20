@@ -25,18 +25,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
 
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.min.css">
+	<link rel="stylesheet" href="css/vendors/icomoon.min.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/vendors/bootstrap.min.css">
 	<!-- Superfish -->
-	<link rel="stylesheet" href="css/superfish.min.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.min.css">
+	<link rel="stylesheet" href="css/vendors/superfish.min.css">
+
 	<!-- Date Picker -->
-	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+	<!-- <link rel="stylesheet" href="css/vendors/bootstrap-datepicker.min.css"> -->
 	<!-- CS Select -->
-	<link rel="stylesheet" href="css/cs-select.min.css">
-	<link rel="stylesheet" href="css/cs-skin-border.min.css">
+	<link rel="stylesheet" href="css/vendors/cs-select.min.css">
+	<link rel="stylesheet" href="css/vendors/cs-skin-border.min.css">
 
 	<link rel="stylesheet" href="css/style.min.css">
 
@@ -70,7 +69,8 @@
 					<!-- START #lviv-menu-wrap -->
 					<nav id="lviv-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="lviv-primary-menu">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="index.html">Home</a>
+							</li>
 							<li>
 								<a href="topspots.html">Top Spots</a>
 							</li>
@@ -105,7 +105,7 @@
               <!-- Nav tabs -->
                <ul class="nav nav-tabs" role="tablist">
                   <li role="presentation" class="active">
-                    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
+                    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Book the tour</a>
                   </li>
                   <li role="presentation">
                      <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
@@ -119,21 +119,15 @@
               <div class="tab-content">
                <div role="tabpanel" class="tab-pane active" id="flights">
                 <div class="row">
-                  <div class="col-xxs-12 col-xs-6 mt alternate">
+                  <div class="col-sm-12 mt">
                     <div class="input-field">
-                      <label for="date-start">Check In:</label>
+                      <label for="date-start">Choose the date:</label>
                       <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
-                    </div>
-                  </div>
-                  <div class="col-xxs-12 col-xs-6 mt alternate">
-                    <div class="input-field">
-                      <label for="date-end">Check Out:</label>
-                      <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
                     </div>
                   </div>
                   <div class="col-sm-12 mt">
                     <section>
-                      <label for="class">Class:</label>
+                      <label for="class">Select the excursion:</label>
                       <select class="cs-select cs-skin-border">
                         <option value="" disabled selected>Economy</option>
                         <option value="economy">Economy</option>
@@ -167,7 +161,7 @@
                     </section>
                   </div>
                   <div class="col-xs-12">
-                    <input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+                    <input type="submit" class="btn btn-primary btn-block" value="Submit">
                   </div>
                 </div>
                </div>
@@ -305,11 +299,10 @@
           </div>
           <div class="desc2 animate-box">
             <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-              <p>HandCrafted by <a href="http://frehtml5.co/" target="_blank" class="lviv-site-name">Roman Bienov</a></p>
-              <h2>Exclusive Limited Time Offer</h2>
-              <h3>Fly to Hong Kong via Los Angeles, USA</h3>
-              <span class="price">$599</span>
-              <!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
+              <p>Tour Guide &#8211; <a href="#" target="_blank" class="lviv-site-name">Veronika Hondarenko</a></p>
+              <h2>Exclusive tours in Lviv</h2>
+              <h3>Excursions in English, Ukrainian and Russian</h3>
+              <span class="price">from $20</span>
             </div>
           </div>
         </div>
@@ -325,7 +318,7 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>Top Tours</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p>“Stuff your eyes with wonder, live as if you’d drop dead in ten seconds. See the world. It’s more fantastic than any dream made or paid for in factories.” – Ray Bradbury</p>
 					</div>
 				</div>
 				<div class="row">
@@ -368,7 +361,7 @@
 				</div>
 			</div>
 		</div>
-
+					<!-- FEATURES -->
 		<div id="lviv-features">
 			<div class="container">
 				<div class="row">
@@ -376,38 +369,35 @@
 
 						<div class="feature-left">
 							<span class="icon">
+								<i class="icon-heart"></i>
+							</span>
+							<div class="feature-copy">
+								<h3>Enjoy</h3>
+								<p>Enjoy life like never before.</p>
+								<p>“For my part, I travel not to go anywhere, but to go. I travel for travel’s sake. The great affair is to move.” – Robert Louis Stevenson</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 animate-box">
+						<div class="feature-left">
+							<span class="icon">
+								<i class="icon-camera"></i>
+							</span>
+							<div class="feature-copy">
+								<h3>Creates Memories </h3>
+								<p>Travelling with friends or family creates memories for a lifetime. These memories will create a bond that nothing can erase no matter what happens with the friendship/relationship.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 animate-box">
+						<div class="feature-left">
+							<span class="icon">
 								<i class="icon-hotairballoon"></i>
 							</span>
 							<div class="feature-copy">
-								<h3>Family Travel</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-								<p><a href="#">Learn More</a></p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="col-md-4 animate-box">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-search"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Travel Plans</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-								<p><a href="#">Learn More</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 animate-box">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-wallet"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Honeymoon</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-								<p><a href="#">Learn More</a></p>
+								<h3>Relaxation</h3>
+								<p>Stress is a natural part of life; in fact it helps us to survive! But when we have too much stress, it can be dangerous to our health. Even positive change brings on stress.</p>
 							</div>
 						</div>
 					</div>
@@ -417,12 +407,12 @@
 
 						<div class="feature-left">
 							<span class="icon">
-								<i class="icon-wine"></i>
+								<i class="icon-man-woman"></i>
 							</span>
 							<div class="feature-copy">
-								<h3>Business Travel</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-								<p><a href="#">Learn More</a></p>
+								<h3>New Friends</h3>
+								<p>You’ll realize that it’s extremely easy to make new friends. </p>
+								<p>“A journey is best measured in friends, rather than miles.” – Tim Cahill</p>
 							</div>
 						</div>
 
@@ -431,12 +421,12 @@
 					<div class="col-md-4 animate-box">
 						<div class="feature-left">
 							<span class="icon">
-								<i class="icon-genius"></i>
+								<i class="icon-binoculars"></i>
 							</span>
 							<div class="feature-copy">
-								<h3>Solo Travel</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-								<p><a href="#">Learn More</a></p>
+								<h3>Discover</h3>
+								<p>You’ll realize life is a wonderful gift.</p>
+								<p>“Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.” – Mark Twain</p>
 							</div>
 						</div>
 
@@ -444,12 +434,12 @@
 					<div class="col-md-4 animate-box">
 						<div class="feature-left">
 							<span class="icon">
-								<i class="icon-chat"></i>
+								<i class="icon-banknote"></i>
 							</span>
 							<div class="feature-copy">
-								<h3>Explorer</h3>
-								<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-								<p><a href="#">Learn More</a></p>
+								<h3>Invest Into Yourself</h3>
+								<p>You will open new insights and give a new purpose for your life. </p>
+								<p>“To travel is to take a journey into yourself.” – Danny Kaye</p>
 							</div>
 						</div>
 					</div>
@@ -503,7 +493,7 @@
 								<div class="title-bg">
 									<div class="case-studies-summary">
 										<h2>The best sights in Lviv</h2>
-										<span><a href="#">View All sights</a></span>
+										<!-- <span><a href="#">View All sights</a></span> -->
 									</div>
 								</div>
 							</li>
@@ -553,7 +543,7 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>Recent From Blog</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+						<p>I hope my posts inspire you to pack up everything and head out into the unknown, to explore the farthest reaches of our planet and your soul, to see the world for what it really is.</p>
 					</div>
 				</div>
 			</div>
@@ -606,7 +596,7 @@
 				</div>
 
 				<div class="col-md-12 text-center animate-box">
-					<p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Post <i class="icon-arrow-right22"></i></a></p>
+					<p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Posts <i class="icon-arrow-right22"></i></a></p>
 				</div>
 
 			</div>
@@ -744,9 +734,7 @@
 <!-- Superfish -->
 <script src="js/vendors/hoverIntent.min.js"></script>
 <script src="js/vendors/superfish.min.js"></script>
-<!-- Magnific Popup -->
-<script src="js/vendors/jquery.magnific-popup.min.js"></script>
-<script src="js/vendors/magnific-popup-options.min.js"></script>
+
 <!-- Date Picker -->
 <script src="js/vendors/bootstrap-datepicker.min.js"></script>
 <!-- CS Select -->
