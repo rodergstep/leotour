@@ -87,7 +87,7 @@
                 }
             }
         });
-    }
+    };
 
 
     // Click outside of the Mobile Menu
@@ -104,7 +104,6 @@
 
 
     // Animations
-
     var contentWayPoint = function() {
         var i = 0;
         $('.animate-box').waypoint(function(direction) {
@@ -137,10 +136,11 @@
             sticky = new Waypoint.Sticky({
                 element: $stickyElement[0],
                 offset: 0
-            })
+            });
         }
     };
 
+    // Highlight the current MenuItem
     var changeMenuItemColor = function() {
         var href = (window.location.href + '').slice(-9, -5);
         var menuItems = document.querySelectorAll('#lviv-primary-menu>li');

@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: $color__text;
 	font-family: $font-primary;
 	font-weight: 400;
-	margin: 0 0 30px 0;
+	margin: 0 0 20px 0;
 }
 figure {
 	margin-bottom: 2em;
@@ -151,24 +151,17 @@ figure {
 
 /* HEADER */
 #lviv-logo{
-	position: relative;
+  position: relative;
+  margin-top: 25px;
+  font-weight: 700;
+  float: left;
+  padding-left: 40px;
+  img {
 	z-index: 2;
 	font-size: 28px;
-	text-transform: uppercase;
-	margin-top: 35px;
-	font-weight: 700;
-	float: left;
-	padding-left: 40px;
-	i{
-		position: absolute;
-		top: 0;
-		left: 0;
-		font-size: 16px;
-		color: $color__primary;
-		background: rgba($color__black,.06);
-		padding: 10px;
-		@include border-radius(50%);
-	}
+  height: 28px;
+	text-transform: uppercase;}
+
 
 	a{
 		color: $color__primary;
@@ -751,11 +744,16 @@ figure {
 
 .nav-tabs{
 	border: none;
-	a{
+
+  li {
+    float:none;
+    text-align: center;
+  }
+	a {
 		border: none !important;
 		font-weight: bold;
+    margin-right: 0 !important;
 		padding: 15px 20px !important;
-		@include border-radius(0);
 		@media screen and (max-width: $screen-sm){
 			font-weight: normal;
 			font-size: 13px;
@@ -1281,12 +1279,12 @@ div.cs-select{
 }
 
 .heading-section{
-	padding-bottom: 1em;
-	margin-bottom: 5em;
+	padding-bottom: 0em;
+	margin-bottom: 4em;
 	&:after{
 		position: absolute;
 		content: '';
-		bottom: 0;
+		bottom: -10px;
 		left: 50%;
 		width: 100px;
 		margin-left: -50px;
@@ -1321,6 +1319,7 @@ div.cs-select{
 	.lviv-heading {
 		h2 {
 			color: rgba(255,255,255,1);
+      margin-bottom: 50px;
 		}
 	}
 	.box-testimony {
@@ -1386,6 +1385,7 @@ div.cs-select{
 
 /* CONTACT */
 #lviv-contact {
+  padding-top: 50px;
 	.contact-info{
 		margin: 0;
 		padding: 0;
