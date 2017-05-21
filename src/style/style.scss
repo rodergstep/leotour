@@ -109,7 +109,7 @@ figure {
 }
 #lviv-work-section,
 #lviv-blog-section,
-#lviv-features,
+#lviv-reasons,
 #lviv-tours,
 #lviv-testimonial,
 .lviv-content-section {
@@ -150,6 +150,8 @@ figure {
 }
 
 /* HEADER */
+
+// Logo
 #lviv-logo{
   position: relative;
   margin-top: 25px;
@@ -756,12 +758,13 @@ figure {
 		padding: 15px 20px !important;
 		@media screen and (max-width: $screen-sm){
 			font-weight: normal;
-			font-size: 13px;
+			font-size: 18px;
 			padding: 15px 10px !important;
 		}
 	}
 	.active{
 		a{
+      font-size: 18px;
 			border: none !important;
 			background: $color__primary !important;
 			color: $color__white !important;
@@ -835,6 +838,9 @@ div.cs-select{
 
 
 /* TOP TOURS*/
+#lviv-tours {
+  padding-bottom: 3em;
+}
 .lviv-tours {
 	margin-bottom: 30px;
 	> div {
@@ -941,18 +947,18 @@ div.cs-select{
 	}
 }
 
-/* FEATURES*/
-#lviv-features {
+/* REASONS */
+#lviv-reasons {
 	padding: 7em 0;
 
-	.feature-left {
+	.reason-left {
 		margin-bottom: 40px;
 		@media screen and (max-width: $screen-md) {
 			margin-bottom: 30px;
 		}
 		.icon {
 			i {
-				color: $feature-icon !important;
+				color: $reason-icon !important;
 			}
 		}
 
@@ -967,7 +973,7 @@ div.cs-select{
 				width: 15%;
 			}
 		}
-		.feature-copy {
+		.reason-copy {
 			float: right;
 			width: 80%;
 			@media screen and (max-width: $screen-md) {
@@ -993,7 +999,7 @@ div.cs-select{
 	}
 }
 
-.feature-left {
+.reason-left {
 	float: left;
 	width: 100%;
 	margin-bottom: 40px;
@@ -1016,7 +1022,7 @@ div.cs-select{
 			color: $color__primary;
 		}
 	}
-	.feature-copy {
+	.reason-copy {
 		float: right;
 		width: 80%;
 		@media screen and (max-width: $screen-md) {
@@ -1041,16 +1047,16 @@ div.cs-select{
 		}
 	}
 }
-/* FEATURES END */
+/* REASONS END */
 
 //TOP SPOTS
-#lviv-destination{
+#lviv-topspots{
 	width: 100%;
 	padding: 0;
 	margin: 0;
 }
 
-#lviv-destination-list {
+#lviv-topspots-list {
 	@include flexwrap;
 	@include flex;
 	position: relative;
@@ -1385,7 +1391,7 @@ div.cs-select{
 
 /* CONTACT */
 #lviv-contact {
-  padding-top: 50px;
+  padding: 50px 0;
 	.contact-info{
 		margin: 0;
 		padding: 0;
