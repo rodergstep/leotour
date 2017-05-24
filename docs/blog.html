@@ -80,8 +80,8 @@
 								<ul class="lviv-sub-menu">
 									<li><a href="#">Musical Lviv</a></li>
 									<li><a href="#">Pearls of the city</a></li>
-									<li><a href="#">Angular JS</a></li>
-									<li><a href="#">Node JS</a></li>
+									<li><a href="#">History of Lemberg</a></li>
+									<li><a href="#">Sacred Lviv</a></li>
 								</ul>
 							</li>
 							<li><a href="contact.html">Contact</a></li>
@@ -98,14 +98,14 @@
 		<div class="row">
 			<div id="container" class="col-md-12 blog-container intro-effect-sidefixed">
 				<header class="header">
-					<div class="bg-img"><img src="img/5.jpg" alt="Background Image" /></div>
+					<div class="bg-img" style="background-image: url(img/cover_bg_blog.jpg);"></div>
 				</header>
 				<button class="trigger" data-info="Click to see the header effect"><span>Trigger</span></button>
 				<article class="content">
 					<div class="title">
 						<h1>Pearls of the Lviv</h1>
 						<p class="subline">Inspiration for Article Intro Effects</p>
-						<p>Tour Guide - <strong>Veronika Hondarenko</strong> &#8212; Posted in <strong>Inspiration</strong> on <strong>May 21, 2014</strong></p>
+						<p>Tour Guide &#8212 <strong>Veronika Hondarenko</strong> <br>Posted on April 21, 2017</p>
 					</div>
 					<div>
 						<p>We may define a food to be any substance which will repair the functional waste of the body, increase its growth, or maintain the heat, muscular, and nervous energy. </p>
@@ -142,6 +142,7 @@
 			</div>
 		</div>
 	</div>
+
 <!-- Footer -->
 <footer>
 	<div id="footer">
@@ -192,7 +193,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center">
+				<div class="col-md-6 col-md-offset-3 text-center footer-mini">
 					<p class="lviv-social-icons">
 						<a href="#"><i class="icon-twitter2"></i></a>
 						<a href="https://www.facebook.com/profile.php?id=100010428583632&fref=ts"><i class="icon-facebook2"></i></a>
@@ -385,5 +386,11 @@
 		trigger.addEventListener('click', function() {
 			toggle('reveal');
 		});
+
 	})();
+
+	console.log(footer);
+	$(".footer-mini").insertAfter($(".content"));
+	$(".footer-mini p").css("margin-left", "20vw")
+	$("footer").remove();
 </script>

@@ -4,14 +4,14 @@
 		<div class="row">
 			<div id="container" class="col-md-12 blog-container intro-effect-sidefixed">
 				<header class="header">
-					<div class="bg-img"><img src="img/5.jpg" alt="Background Image" /></div>
+					<div class="bg-img" style="background-image: url(img/cover_bg_blog.jpg);"></div>
 				</header>
 				<button class="trigger" data-info="Click to see the header effect"><span>Trigger</span></button>
 				<article class="content">
 					<div class="title">
 						<h1>Pearls of the Lviv</h1>
 						<p class="subline">Inspiration for Article Intro Effects</p>
-						<p>Tour Guide - <strong>Veronika Hondarenko</strong> &#8212; Posted in <strong>Inspiration</strong> on <strong>May 21, 2014</strong></p>
+						<p>Tour Guide &#8212 <strong>Veronika Hondarenko</strong> <br>Posted on April 21, 2017</p>
 					</div>
 					<div>
 						<p>We may define a food to be any substance which will repair the functional waste of the body, increase its growth, or maintain the heat, muscular, and nervous energy. </p>
@@ -48,6 +48,7 @@
 			</div>
 		</div>
 	</div>
+
 @@include('../src/_footer.html')
 
 <script>
@@ -191,5 +192,11 @@
 		trigger.addEventListener('click', function() {
 			toggle('reveal');
 		});
+
 	})();
+
+	console.log(footer);
+	$(".footer-mini").insertAfter($(".content"));
+	$(".footer-mini p").css("margin-left", "20vw")
+	$("footer").remove();
 </script>
