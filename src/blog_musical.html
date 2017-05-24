@@ -1,0 +1,194 @@
+@@include('../src/_head.html')
+
+<div class="fluid">
+	<div class="row">
+		<div id="container" class="col-md-12 blog-container intro-effect-sidefixed">
+			<header class="header">
+				<div class="bg-img" style="background-image: url(img/cover_bg_blog.jpg);"></div>
+			</header>
+			<button class="trigger" data-info="Click to see the full article"><span>Trigger</span></button>
+			<article class="content">
+				<div class="title">
+					<h1>Musical Lviv</h1>
+					<p class="subline">Inspiration for article is Stanyslav Lyudkevych</p>
+					<p>Tour Guide &#8212 <strong>Veronika Hondarenko</strong> <br>Posted on March 19, 2017</p>
+				</div>
+				<div>
+					<p>The first written mention about Lviv is dated 1256, that history the city has more than 750 years. The city, which was founded at the intersection of profitable trade routes developed and flourished, becoming one of the main centers of medieval Europe.
+					Throughout its history, under the authority of European countries like Poland, Austria-Hungary and Russia, on the Lions went through each part of culture and knowledge and eventually become a pearl of architecture and a great center of scientific,
+					spiritual and artistic life.</p>
+					<p>Indisputable evidence of the cultural wealth of the city there are many theaters, concert halls, art groups, and conducting in numerous festivals and art events. </p>
+					<p>Franz Xaver Mozart Franz Xaver Mozart In diverse cultural
+					life of the city has always occupied a significant place music. In 1796, conductor and composer Jozef Elsner, a future teacher of Frederic Chopin, founded in Lviv Music Academy. In 1826 WA Mozart's son Franz Xaver founded the Society of St. Tsetsiliyi
+					(with choir singing and Institute). These two musical institutions were able to unite the best performing forces for cultural and educational live performances and became the prototype of important musical organization of the Austrian province -
+					Galician Musical Society. </p>
+					<p>From the musical history of the city the names of prominent musicians and actors as Johan Rukhaber (1799-1876), a pupil of Chopin - Karol Mikula (1821-1897), Mieczyslaw Soltys (1863-1929), Rudolf Schwarz (1834- 1899), Denis Sichynskyi Stanislav Nyevyadomskyy. In the musical history of the city also left its mark figures such as singers A.Didur, S.Krushelnytska, M.Mentsynskyy, O.Myshuha; pianists: L.Myuntser, M.Rozental, E.Shtoyerman; cellists:	B.Berezhnytskyy, D.Danchovskyy, P.Pshenychka which, no doubt, made a significant contribution to the treasury of world music history. </p>
+					<p>Separately, we must mention Karol (Nicholas) Savitsky (1792-1850), who began his career violin masters in Ukraine
+					and moved to Vienna, received deserved recognition among artists and musicians violin. Famous is the review of Paganini Savitsky, published in the local press in 1828, which he called his "extraordinary genius and given the skill of making new violins
+					and given perfect restorations of antique string stringed instruments."</p>
+					<p>The history of violin performance Galicia many bright pages and rooted in the distant past. In the first half. Nineteenth century. Lviv worked outstanding violin virtuoso and composer Karol Lipinski (1790-1861), who competed with skill in violin Niccolo Paґanini, played in a quartet with Ludwig Spohr, playing in ensembles with Robert Schumann and Franz Liszt. It worked - permanently or occasionally - other	outstanding violinists: Ignaz Shuppantsiґ (Ignaz Schuppanzig), a French violinist and composer Jacques Fereol Mazas (Jaques-Fereol Masas), Joseph (Jozef) tower (Józef Baschny-Baszny-Bašny), Stanislav Servachynskyy ( Stanisław Serwaczyński), who later
+					became the first teacher H.Venyavskoho and Y.Yoahima. From the city such as the names of famous violinists of his time as Carol Kozlowski, Felix Yakl Henry Slavichek, Vaclav Kohanskyy (student L.Auera and O.Shevchyka), a student and L.Auera O.Shevchyka
+					- Elizabeth Schedrovych-Hankevycheva, and Eugene Perfetskyy (student O.Shevchyka). </p>
+					<p>Continued the tradition of famous predecessors Galicia violin performance figures such as Roman Kryshtalsky, Osip Muscovites Yuri Kryh (student O.Moskvychiva and Jacques
+					Thibaud), Dmitry Lekher, Alexander Derkach. </p>
+					<p>In the years 1950-1970 in Ukraine worked such famous violin pedagogues as Konstantin Mikhailov, Alexander Egorov, Samuel Ammerman, Joseph Sapir, Gregory Dyachenko, Grigory Heifetz. </p>
+					<p>In Lviv, studied and	started his musical career by such famous artists as O.Krysa, Yu.Bashmet, Yu.Korchynskyy, B.Kotorovych, Yu.Mazurkevych, M.Chaykovska, N. Thomas.</p>
+					<p><strong>Duration: 2 hours.</strong></p>
+					<p><strong>COST: team in the group - from 20 $ per hour.</strong></p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+
+@@include('../src/_footer.html')
+
+<script>
+	(function() {
+
+		// detect if IE : from http://stackoverflow.com/a/16657946
+		var ie = (function() {
+			var undef, rv = -1; // Return value assumes failure.
+			var ua = window.navigator.userAgent;
+			var msie = ua.indexOf('MSIE ');
+			var trident = ua.indexOf('Trident/');
+
+			if (msie > 0) {
+				// IE 10 or older => return version number
+				rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+			} else if (trident > 0) {
+				// IE 11 (or newer) => return version number
+				var rvNum = ua.indexOf('rv:');
+				rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+			}
+
+			return ((rv > -1) ? rv : undef);
+		}());
+
+
+		// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
+		// left: 37, up: 38, right: 39, down: 40,
+		// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+		var keys = [32, 37, 38, 39, 40],
+			wheelIter = 0;
+
+		function preventDefault(e) {
+			e = e || window.event;
+			if (e.preventDefault)
+				e.preventDefault();
+			e.returnValue = false;
+		}
+
+		function keydown(e) {
+			for (var i = keys.length; i--;) {
+				if (e.keyCode === keys[i]) {
+					preventDefault(e);
+					return;
+				}
+			}
+		}
+
+		function touchmove(e) {
+			preventDefault(e);
+		}
+
+		function wheel(e) {
+			// for IE
+			//if( ie ) {
+			//preventDefault(e);
+			//}
+		}
+
+		function disable_scroll() {
+			window.onmousewheel = document.onmousewheel = wheel;
+			document.onkeydown = keydown;
+			document.body.ontouchmove = touchmove;
+		}
+
+		function enable_scroll() {
+			window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
+		}
+
+		var docElem = window.document.documentElement,
+			scrollVal,
+			isRevealed,
+			noscroll,
+			isAnimating,
+			container = document.getElementById('container'),
+			trigger = container.querySelector('button.trigger');
+
+		function scrollY() {
+			return window.pageYOffset || docElem.scrollTop;
+		}
+
+		function scrollPage() {
+			scrollVal = scrollY();
+
+			if (noscroll && !ie) {
+				if (scrollVal < 0) return false;
+				// keep it that way
+				window.scrollTo(0, 0);
+			}
+
+			if (classie.has(container, 'notrans')) {
+				classie.remove(container, 'notrans');
+				return false;
+			}
+
+			if (isAnimating) {
+				return false;
+			}
+
+			if (scrollVal <= 0 && isRevealed) {
+				toggle(0);
+			} else if (scrollVal > 0 && !isRevealed) {
+				toggle(1);
+			}
+		}
+
+		function toggle(reveal) {
+			isAnimating = true;
+
+			if (reveal) {
+				classie.add(container, 'modify');
+			} else {
+				noscroll = true;
+				disable_scroll();
+				classie.remove(container, 'modify');
+			}
+
+			// simulating the end of the transition:
+			setTimeout(function() {
+				isRevealed = !isRevealed;
+				isAnimating = false;
+				if (reveal) {
+					noscroll = false;
+					enable_scroll();
+				}
+			}, 600);
+		}
+
+		// refreshing the page...
+		var pageScroll = scrollY();
+		noscroll = pageScroll === 0;
+
+		disable_scroll();
+
+		if (pageScroll) {
+			isRevealed = true;
+			classie.add(container, 'notrans');
+			classie.add(container, 'modify');
+		}
+
+		window.addEventListener('scroll', scrollPage);
+		trigger.addEventListener('click', function() {
+			toggle('reveal');
+		});
+
+	})();
+
+	// Footer editing
+	$(".footer-mini").insertAfter($(".content"));
+	$(".footer-mini p").css("margin-left", "20vw")
+	$("footer").remove();
+</script>

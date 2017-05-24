@@ -1578,6 +1578,20 @@ div.cs-select {
 .title p.subline {
     font-size: 1.75em;
 }
+
+@media (max-width: 828px) {
+  .title {
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 14px;
+    }
+    p.subline {
+      font-size: 18px;
+    }
+  }
+}
 /* Trigger Button */
 button.trigger {
     position: fixed;

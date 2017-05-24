@@ -1,0 +1,188 @@
+@@include('../src/_head.html')
+
+<div class="fluid">
+	<div class="row">
+		<div id="container" class="col-md-12 blog-container intro-effect-sidefixed">
+			<header class="header">
+				<div class="bg-img" style="background-image: url(img/cover_bg_blog.jpg);"></div>
+			</header>
+			<button class="trigger" data-info="Click to see the full article"><span>Trigger</span></button>
+			<article class="content">
+				<div class="title">
+					<h1>Sacred Lviv</h1>
+					<p class="subline">Inspiration for article is Taras Shevchenko</p>
+					<p>Tour Guide &#8212 <strong>Veronika Hondarenko</strong> <br>Posted on March 19, 2017</p>
+				</div>
+				<div>
+					<p>Tour of Christian sacred center of the city, lasting 3 hours.</p>
+					<p>In Lviv, there are about 100 active churches of different denominations. We offer a guide to go along with those that are located within the central part of the city and which can be easily reached on foot.</p>
+					<p>Persha shrine route our tour - a <strong>Jesuit</strong> (1630) - the first church in Lviv Baroque. Thanks to the gallery on the second floor, the church can hold a record 5,000 people at a time.</p>
+					<p>Nearby is the <strong>Latin Cathedral</strong> (XIV-XV century.) - Polish main temple of the city, the best preserved gothic landmark of the city. Here, several times a day during the Mass you can hear the sounds of the game one of the best of the city. Almost to the cathedral nestled Boim Chapel (1615) - a family chapel and tomb of one of the Lviv merchant families.</p>
+					<p><strong>Bernardine Church</strong> (1630) and the <strong>Church of the Poor Clares</strong> (XVII c.) Placed side by side. First the end of XVIII century church was used as a monastery of monks of the Order of St. Bernardin, and is now active Greek-Catholic Church of Sts. Andrew, the second - in the old Poor Clares convent owned and now serves as a museum of sacred baroque master Johann Pinsel sculptures.</p>
+					<p>Having then seen as the hill stands the <strong>Church of the Discalced Carmelites</strong> (1634). The building is modest Baroque style in the Middle Ages was surrounded by walls and looked like a small fortress. Nearby is active monastery.</p>
+					<p><strong>Assumption Church</strong> (1629) - in the Middle Ages, the only Orthodox church in downtown city. Italian architects built the church commissioned Ukrainian community. The holistic architectural ensemble of the Assumption Church create Chapel of the Three Saints (1591) and Kornyakt Tower (1578).</p>
+					<p>Far seen a large dome <strong>Dominican church</strong> (1764) - magnificent monument of the late Baroque in. The inscription on the facade of "Soli Deo honor et gloria" in translation means: "Only God the honor and glory." Along the former convent, which is now used as a museum of history of religion.</p>
+					<p>The next step is the oldest Armenian church in Europe - <strong>Armenian Church</strong> (1363). You must be interested mystical murals Jan Henryk Rosen inside the sanctuary.</p>
+					<p>After a bit more ourselves to <strong>Transfiguration Church</strong> (1898). This is the youngest church downtown city, but going inwards of the sanctuary can be seen as a typical Greek Catholic Church.</p>
+					<p><strong>Church of Mary Snow</strong> (1344) and the church and convent of Benedictine Sisters (1616) are almost on the same street. These small buildings with a long history. Lady of the Snows Church founded by German settlers and some time it was the main Catholic church of the town and the church and convent of Benedictine Sisters still retained a remarkable Renaissance tower, belfry.</p>
+					<p><strong>Church of St. John the Baptist</strong> (XIII c.) According to legend was built on the orders of Prince Lev to Dominican monks who came to the city with his wife of Prince - Constance of Hungary. The church has a Greek-Catholic Church and the Museum of the oldest monuments of the city.</p>
+					<p><strong>Church Nicholas</strong> (1292) is the oldest temple of the city. Here are kept icons XVII century, and some new paintings are filled with historical themes. The exterior of the sanctuary combines the features of Ukrainian and Balkan architecture. Tours tour can be done at the Taras Shevchenko monument on Liberty Avenue.</p>
+					<p><strong>Duration: 3 hours.</strong></p>
+					<p><strong>COST: team in the group - from 20 $ per hour.</strong></p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+
+@@include('../src/_footer.html')
+
+<script>
+	(function() {
+
+		// detect if IE : from http://stackoverflow.com/a/16657946
+		var ie = (function() {
+			var undef, rv = -1; // Return value assumes failure.
+			var ua = window.navigator.userAgent;
+			var msie = ua.indexOf('MSIE ');
+			var trident = ua.indexOf('Trident/');
+
+			if (msie > 0) {
+				// IE 10 or older => return version number
+				rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+			} else if (trident > 0) {
+				// IE 11 (or newer) => return version number
+				var rvNum = ua.indexOf('rv:');
+				rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+			}
+
+			return ((rv > -1) ? rv : undef);
+		}());
+
+
+		// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
+		// left: 37, up: 38, right: 39, down: 40,
+		// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+		var keys = [32, 37, 38, 39, 40],
+			wheelIter = 0;
+
+		function preventDefault(e) {
+			e = e || window.event;
+			if (e.preventDefault)
+				e.preventDefault();
+			e.returnValue = false;
+		}
+
+		function keydown(e) {
+			for (var i = keys.length; i--;) {
+				if (e.keyCode === keys[i]) {
+					preventDefault(e);
+					return;
+				}
+			}
+		}
+
+		function touchmove(e) {
+			preventDefault(e);
+		}
+
+		function wheel(e) {
+			// for IE
+			//if( ie ) {
+			//preventDefault(e);
+			//}
+		}
+
+		function disable_scroll() {
+			window.onmousewheel = document.onmousewheel = wheel;
+			document.onkeydown = keydown;
+			document.body.ontouchmove = touchmove;
+		}
+
+		function enable_scroll() {
+			window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
+		}
+
+		var docElem = window.document.documentElement,
+			scrollVal,
+			isRevealed,
+			noscroll,
+			isAnimating,
+			container = document.getElementById('container'),
+			trigger = container.querySelector('button.trigger');
+
+		function scrollY() {
+			return window.pageYOffset || docElem.scrollTop;
+		}
+
+		function scrollPage() {
+			scrollVal = scrollY();
+
+			if (noscroll && !ie) {
+				if (scrollVal < 0) return false;
+				// keep it that way
+				window.scrollTo(0, 0);
+			}
+
+			if (classie.has(container, 'notrans')) {
+				classie.remove(container, 'notrans');
+				return false;
+			}
+
+			if (isAnimating) {
+				return false;
+			}
+
+			if (scrollVal <= 0 && isRevealed) {
+				toggle(0);
+			} else if (scrollVal > 0 && !isRevealed) {
+				toggle(1);
+			}
+		}
+
+		function toggle(reveal) {
+			isAnimating = true;
+
+			if (reveal) {
+				classie.add(container, 'modify');
+			} else {
+				noscroll = true;
+				disable_scroll();
+				classie.remove(container, 'modify');
+			}
+
+			// simulating the end of the transition:
+			setTimeout(function() {
+				isRevealed = !isRevealed;
+				isAnimating = false;
+				if (reveal) {
+					noscroll = false;
+					enable_scroll();
+				}
+			}, 600);
+		}
+
+		// refreshing the page...
+		var pageScroll = scrollY();
+		noscroll = pageScroll === 0;
+
+		disable_scroll();
+
+		if (pageScroll) {
+			isRevealed = true;
+			classie.add(container, 'notrans');
+			classie.add(container, 'modify');
+		}
+
+		window.addEventListener('scroll', scrollPage);
+		trigger.addEventListener('click', function() {
+			toggle('reveal');
+		});
+
+	})();
+
+	// Footer editing
+	$(".footer-mini").insertAfter($(".content"));
+	$(".footer-mini p").css("margin-left", "20vw")
+	$("footer").remove();
+</script>
