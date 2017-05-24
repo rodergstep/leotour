@@ -982,8 +982,8 @@ div.cs-select {
             }
 
             .price {
-                font-size: 30px;
-                font-weight: bold;
+                font-size: 18px;
+                // font-weight: bold;
                 color: $color__white;
             }
 
@@ -1166,7 +1166,7 @@ div.cs-select {
     width: 100%;
 
     li {
-        display: table;
+        display: flex;
         padding: 0;
         margin: 0;
         list-style: none;
