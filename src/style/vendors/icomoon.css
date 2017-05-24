@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?q33dnu');
-  src:  url('fonts/icomoon.eot?q33dnu#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?q33dnu') format('truetype'),
-    url('fonts/icomoon.woff?q33dnu') format('woff'),
-    url('fonts/icomoon.svg?q33dnu#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?jysdgk');
+  src:  url('fonts/icomoon.eot?jysdgk#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?jysdgk') format('truetype'),
+    url('fonts/icomoon.woff?jysdgk') format('woff'),
+    url('fonts/icomoon.svg?jysdgk#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,44 +24,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-hotairballoon:before {
+  content: "\e044";
+}
 .icon-banknote:before {
   content: "\e900";
 }
 .icon-heart:before {
   content: "\e902";
 }
-.icon-love:before {
-  content: "\e902";
-}
-.icon-like:before {
-  content: "\e902";
-}
 .icon-camera:before {
   content: "\e903";
-}
-.icon-movie:before {
-  content: "\e903";
-}
-.icon-video:before {
-  content: "\e903";
-}
-.icon-record:before {
-  content: "\e903";
-}
-.icon-film:before {
-  content: "\e903";
-}
-.icon-chevron-down:before {
-  content: "\e922";
-}
-.icon-select-arrows:before {
-  content: "\e94d";
 }
 .icon-arrow-up:before {
   content: "\e91b";
 }
-.icon-hotairballoon:before {
-  content: "\e044";
+.icon-chevron-down:before {
+  content: "\e922";
+}
+.icon-lifebuoy:before {
+  content: "\e941";
+}
+.icon-select-arrows:before {
+  content: "\e94d";
+}
+.icon-binoculars:before {
+  content: "\e985";
 }
 .icon-globe2:before {
   content: "\e9b0";
@@ -71,6 +59,9 @@
 }
 .icon-mail:before {
   content: "\e9db";
+}
+.icon-man-woman:before {
+  content: "\e9de";
 }
 .icon-phone2:before {
   content: "\e9f5";
@@ -93,18 +84,12 @@
 .icon-quotes-right:before {
   content: "\eb36";
 }
-.icon-airplane:before {
-  content: "\eb6d";
-}
 .icon-arrow-right22:before {
   content: "\ebfa";
 }
-.icon-lifebuoy:before {
-  content: "\e941";
+.icon-uniE096:before {
+  content: "\e096";
 }
-.icon-binoculars:before {
-  content: "\e985";
-}
-.icon-man-woman:before {
-  content: "\e9de";
+.icon-uniE097:before {
+  content: "\e097";
 }

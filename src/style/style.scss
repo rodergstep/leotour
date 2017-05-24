@@ -2,8 +2,8 @@
 @import 'bootstrap/variables';
 @import 'fonts';
 @import 'vars';
-@import 'mixins';
-// Global animation
+@import 'mixins'; // Global animation
+
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -51,6 +51,7 @@
 }
 // Global animation end
 // Template Base
+
 body {
     font-family: $font-primary;
     line-height: 1.6;
@@ -161,6 +162,7 @@ figure {
 }
 /* HEADER */
 // Logo
+
 #lviv-logo {
     position: relative;
     margin-top: 25px;
@@ -185,6 +187,7 @@ figure {
     }
 }
 // MENU
+
 #lviv-menu-wrap {
     @media screen and (max-width: $screen-sm) {
         display: none;
@@ -737,6 +740,7 @@ figure {
     }
 }
 //BOOKING FORM
+
 .tabulation {
     width: 100%;
     float: left;
@@ -855,6 +859,7 @@ figure {
     margin-bottom: 20px;
 }
 // Select Style Override
+
 div.cs-select {
     span {
         padding: 10px;
@@ -1144,6 +1149,7 @@ div.cs-select {
 }
 /* REASONS END */
 //TOP SPOTS
+
 #lviv-topspots {
     width: 100%;
     padding: 0;
@@ -1428,6 +1434,7 @@ div.cs-select {
 }
 /* END of RECENT FROM BLOG */
 // TESTIMONIAL
+
 #lviv-testimonial {
     position: relative;
     padding-top: 5em;
@@ -1775,7 +1782,7 @@ button.trigger span::before {
 }
 
 .intro-effect-sidefixed .title h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: $font-primary;
     font-weight: 700;
     padding: 0 0 0.5em;
     color: $color__primary;
@@ -1859,7 +1866,6 @@ button.trigger span::before {
     }
 }
 /* ARTICLE INTRO EFFECT */
-
 /* CONTACT */
 #lviv-contact {
     padding: 50px 0;
@@ -2077,6 +2083,7 @@ button.trigger span::before {
 }
 /* FOOTER END */
 // Helper Class
+
 .btn {
     @include transition(.3s);
 }
