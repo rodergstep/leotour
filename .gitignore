@@ -5,3 +5,4 @@ bower.json
 gulpfile.js
 gutil.log
 package.json
+package-lock.json
